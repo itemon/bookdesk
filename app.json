@@ -1,0 +1,30 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ff9000",
+    "navigationBarTitleText": "就餐预定",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "就餐预定",
+        "iconPath": "resource/book.png",
+        "selectedIconPath": "resource/book_selected.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "预定历史",
+        "iconPath": "resource/his.png",
+        "selectedIconPath": "resource/his_selected.png"
+      }
+    ],
+    "selectedColor": "#ff9000"
+  },
+  "debug": true
+}
