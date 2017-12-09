@@ -46,3 +46,7 @@ page {
   color:#fff;
   background:#ff9000;
 }
+
+.btn-primary[disabled] {
+  background:#eee;
+}

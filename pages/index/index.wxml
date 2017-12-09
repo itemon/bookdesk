@@ -30,7 +30,7 @@
     </picker>
   </view>
   <view class="price-wrapper">
-    支付定金：<text class="price">￥100</text>元
+    支付定金：<text class="price">￥100元</text>
   </view>
   <button class="btn-primary">预定</button>
 </form>

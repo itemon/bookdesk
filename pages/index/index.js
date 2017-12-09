@@ -8,7 +8,7 @@ var [begin, end] = toDateRange();
 Page({
   data: {
     userInfo: {},
-    hc: [1, 2, 3, 4, 5].map((v) => v + '个人就餐'),
+    hc: [2, 4, 6, 8, 10].map((v) => v + '个人以内'),
     hcCheckedIndex: 0,
     checkedDate: toDateString(begin),
     startDate: toDateString(begin),

@@ -1,0 +1,6 @@
+<template name="logitem">
+    <view class="log-item">
+      <text>{{log}}</text>
+      <text class="hc">1人</text>
+    </view>
+</template>
