@@ -5,9 +5,10 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
+    "backgroundColor": "#eee",
     "navigationBarBackgroundColor": "#ff9000",
     "navigationBarTitleText": "就餐预定",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"white"
   },
   "tabBar": {
     "list": [

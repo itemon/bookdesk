@@ -1,14 +1,36 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
+  <view bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-  <view class="test-in-page-share">
-    <share-button>share it</share-button>
-    <button open-type="share">share button</button>
-  </view>
 </view>
+
+<form class="list-ctrl">
+  <view class="book-intr">
+    <text class="hint-text">就餐人数</text>
+  </view>
+  <view class="list-ctrl-item">
+    <picker bindchange="bindPCChange" mode="selector" range="{{hc}}" value="{{hcCheckedIndex}}">
+      <view class="arrow-container">
+        <view class="ctrl-text">{{hc[hcCheckedIndex]}}</view>
+        <view class="clickable-arrow"></view>
+      </view>
+    </picker>
+  </view>
+  <view class="book-intr">
+    <text class="hint-text">就餐时间</text>
+  </view>
+  <view class="list-ctrl-item">
+    <picker start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange" mode="date">
+      <view class="arrow-container">
+        <view class="ctrl-text">{{checkedDate}}</view>
+        <view class="clickable-arrow"></view>
+      </view>
+    </picker>
+  </view>
+  <view class="price-wrapper">
+    支付定金：<text class="price">￥100</text>元
+  </view>
+  <button class="btn-primary">预定</button>
+</form>
