@@ -4,6 +4,7 @@ var app = getApp();
 var envInfo = require('../../utils/debug').envInfo;
 var {toDateString, toDateRange} = require('./date_utils');
 var [begin, end] = toDateRange();
+var {pay, requestOpenId} = require('./pay.js');
 
 Page({
   data: {
@@ -12,7 +13,8 @@ Page({
     hcCheckedIndex: 0,
     checkedDate: toDateString(begin),
     startDate: toDateString(begin),
-    endDate: toDateString(end)
+    endDate: toDateString(end),
+    paying: false,
   },
   //事件处理函数
   bindViewTap: function() {
@@ -30,6 +32,26 @@ Page({
     const { detail: { value } } = evt;
     this.setData({
       checkedDate: value
+    });
+  },
+  onStartPay: function () {
+    this.setData({
+      paying: true
+    });
+
+    pay(wx)
+    .then((res) => {
+      return requestOpenId(wx, {
+        appid: 'wxbc430bb3cf2ef26e',
+        secret: '123',
+        js_code: res.code
+      });
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
     });
   },
   onShareAppMessage: function (options) {

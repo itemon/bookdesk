@@ -4,12 +4,13 @@
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
-		"minified": true
+		"minified": true,
+		"newFeature": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.7.0",
-	"appid": "wx507b8e4dd62c1acc",
-	"projectname": "bookdesk",
+	"appid": "wxbc430bb3cf2ef26e",
+	"projectname": "booktable",
 	"condition": {
 		"search": {
 			"current": -1,
