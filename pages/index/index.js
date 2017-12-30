@@ -4,7 +4,9 @@ var app = getApp();
 var envInfo = require('../../utils/debug').envInfo;
 var {toDateString, toDateRange} = require('./date_utils');
 var [begin, end] = toDateRange();
-var {pay, requestOpenId} = require('./pay.js');
+var {pay, requestOpenId, booking, checkout} = require('./pay.js');
+var {appConf} = require('../../conf/app_conf.js');
+var { loginBefore, setSessionKeyAndOpenId } = require('./login_utils.js');
 
 Page({
   data: {
@@ -34,24 +36,68 @@ Page({
       checkedDate: value
     });
   },
+  booking (res) {
+    let bookingRequirements = {
+      ...res,
+      gender: 0,
+      eat_date: '2018-01-10',
+      eat_mement: 0,
+      eat_count: 2,
+      taboos: '不吃辣',
+      phone: '18618387281',
+    }
+    booking(wx, bookingRequirements)
+    .then(res => {
+      this.setData({ paying: false });
+      wx.hideLoading();
+      let allSignArgs = {
+        ...res,
+      }
+      return checkout(wx, allSignArgs);
+    })
+    .then (res => {
+      console.log(res);
+    })
+    .catch(err => {
+      this.setData({ paying: false });
+      wx.hideLoading();
+      wx.showToast({
+        title: err.msg,
+      });
+    });
+  },
   onStartPay: function () {
     this.setData({
       paying: true
     });
+    wx.showLoading({
+      title: '加载中，请稍候...',
+    });
 
+    loginBefore(wx)
+    .then((res) => {
+      console.log(res.data);
+      this.booking(res.data);
+    }).catch((res) => {
+      this.onReallyStartPay();
+    });
+  },
+  onReallyStartPay () {
     pay(wx)
     .then((res) => {
       return requestOpenId(wx, {
-        appid: 'wxbc430bb3cf2ef26e',
-        secret: '123',
+        appid: appConf.appid,
+        secret: appConf.secret,
         js_code: res.code
       });
     })
     .then((res) => {
-      console.log(res);
+      setSessionKeyAndOpenId(wx, res);
+      this.booking(res);
     })
     .catch((err) => {
       console.log(err);
+      this.setData({ paying: false });
     });
   },
   onShareAppMessage: function (options) {
