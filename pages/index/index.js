@@ -7,11 +7,17 @@ var [begin, end] = toDateRange();
 var {pay, requestOpenId, booking, checkout} = require('./pay.js');
 var {appConf} = require('../../conf/app_conf.js');
 var { loginBefore, setSessionKeyAndOpenId } = require('./login_utils.js');
+var { allRequirements } = require('./booking_req.js');
+
+const HEAD_COUNT_BASE = [2, 4, 6, 8, 10];
 
 Page({
   data: {
     userInfo: {},
-    hc: [2, 4, 6, 8, 10].map((v) => v + '个人以内'),
+    hc: HEAD_COUNT_BASE.map((item, idx) => {
+      return (idx == HEAD_COUNT_BASE.length - 1) ? item + '人以上' : item + '人以内';
+    }),
+    hcBase: HEAD_COUNT_BASE,
     hcCheckedIndex: 0,
     checkedDate: toDateString(begin),
     startDate: toDateString(begin),
@@ -37,19 +43,22 @@ Page({
     });
   },
   booking (res) {
+    let reqs = allRequirements(this);
     let bookingRequirements = {
-      ...res,
+      ...reqs,
+      open_id: res.openid,
       gender: 0,
-      eat_date: '2018-01-10',
       eat_mement: 0,
-      eat_count: 2,
       taboos: '不吃辣',
+      name: "黄伟",
       phone: '18618387281',
     }
+
     booking(wx, bookingRequirements)
     .then(res => {
       this.setData({ paying: false });
       wx.hideLoading();
+      return Promise.reject('not implemented yet');
       let allSignArgs = {
         ...res,
       }

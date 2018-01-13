@@ -53,8 +53,9 @@ const booking = (wx, opts) => {
       data: payload,
       method: 'POST',
       success: function (res) {
-        console.log(res);
-        reject({ msg: 'not implemented yet' });
+        // console.log(res);
+        // reject({ msg: 'not implemented yet' });
+        resolve(res);
       },
       fail: function (err) {
         reject(err);
