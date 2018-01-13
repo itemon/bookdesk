@@ -50,3 +50,17 @@ page {
 .btn-primary[disabled] {
   background:#eee;
 }
+
+.ctrl-radio {
+  padding: 0 0 0 20rpx;
+  font-size:14px;
+}
+
+.ctrl-txt {
+  padding:0 20rpx;
+  font-size:14px;
+}
+
+.input-placeholder {
+  color:#9a9a9a;
+}

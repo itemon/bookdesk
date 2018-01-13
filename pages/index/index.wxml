@@ -8,6 +8,30 @@
 
 <form class="list-ctrl">
   <view class="book-intr">
+    <text class="hint-text">姓名</text>
+  </view>
+  <view class="list-ctrl-item">
+    <input value="{{name}}" placeholder-style="color:#9a9a9a" data-name="name" bindinput="bindText" class="ctrl-txt" type="text" placeholder="姓名" auto-focus/>
+  </view>
+
+  <view class="book-intr">
+    <text class="hint-text">性别</text>
+  </view>
+  <view class="list-ctrl-item">
+    <radio-group bindchange="bindSelectGender">
+      <radio class="ctrl-radio" checked="checked" value="1">男</radio>
+      <radio class="ctrl-radio" value="0">女</radio>
+    </radio-group>
+  </view>
+
+  <view class="book-intr">
+    <text class="hint-text">联系电话</text>
+  </view>
+  <view class="list-ctrl-item">
+    <input placeholder-style="color:#9a9a9a" data-name="phone" bindinput="bindText" class="ctrl-txt" type="number" placeholder="联系电话"/>
+  </view>
+
+  <view class="book-intr">
     <text class="hint-text">就餐人数</text>
   </view>
   <view class="list-ctrl-item">
@@ -29,6 +53,14 @@
       </view>
     </picker>
   </view>
+
+  <view class="book-intr">
+    <text placeholder-style="color:#9a9a9a" class="hint-text">忌口</text>
+  </view>
+  <view class="list-ctrl-item">
+    <textarea data-name="taboos" bindinput="bindText" class="ctrl-txt" auto-height placeholder="有什么忌口" />
+  </view>
+
   <view class="price-wrapper">
     支付定金：<text class="price">￥100元</text>
   </view>

@@ -12,6 +12,7 @@ const toDateString = (date, separator = '-') => {
 
 const toDateRange = () => {
   const begin = new Date();
+  begin.setDate(begin.getDate() + 3);
   const end = new Date(begin.getTime());
   end.setFullYear(end.getFullYear() + 1);
   return [begin, end];

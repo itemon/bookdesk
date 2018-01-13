@@ -7,7 +7,7 @@ var [begin, end] = toDateRange();
 var {pay, requestOpenId, booking, checkout} = require('./pay.js');
 var {appConf} = require('../../conf/app_conf.js');
 var { loginBefore, setSessionKeyAndOpenId } = require('./login_utils.js');
-var { allRequirements } = require('./booking_req.js');
+var { allRequirements, checkReq } = require('./booking_req.js');
 
 const HEAD_COUNT_BASE = [2, 4, 6, 8, 10];
 
@@ -22,6 +22,10 @@ Page({
     checkedDate: toDateString(begin),
     startDate: toDateString(begin),
     endDate: toDateString(end),
+    gender: 1,
+    name: '',
+    phone: '',
+    taboos: '',
     paying: false,
   },
   //事件处理函数
@@ -36,29 +40,50 @@ Page({
       "hcCheckedIndex":parseInt(value)
     });
   },
+  bindText: function (evt) {
+    const { detail: { value } } = evt;
+    const name = evt.currentTarget.dataset.name;
+    if (typeof name === 'string') {
+      switch(name) {
+        case 'name':
+        case 'phone':
+        case 'taboos':
+          this.setData({
+            [name]: value
+          });
+          break;
+      }
+    }
+  },
   bindDateChange: function (evt) {
     const { detail: { value } } = evt;
     this.setData({
       checkedDate: value
     });
   },
+  bindSelectGender: function (evt) {
+    const { detail: { value } } = evt;
+    this.setData({
+      gender: Number(value),
+    })
+  },
   booking (res) {
     let reqs = allRequirements(this);
     let bookingRequirements = {
       ...reqs,
       open_id: res.openid,
-      gender: 0,
+      // gender: 0,
       eat_mement: 0,
-      taboos: '不吃辣',
-      name: "黄伟",
-      phone: '18618387281',
+    }
+
+    if (!checkReq(wx, bookingRequirements)) {
+      return;
     }
 
     booking(wx, bookingRequirements)
     .then(res => {
       this.setData({ paying: false });
       wx.hideLoading();
-      return Promise.reject('not implemented yet');
       let allSignArgs = {
         ...res,
       }
@@ -71,7 +96,7 @@ Page({
       this.setData({ paying: false });
       wx.hideLoading();
       wx.showToast({
-        title: err.msg,
+        title: err.errMsg,
       });
     });
   },
@@ -116,10 +141,15 @@ Page({
     envInfo(wx);
     var that = this;
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
+    app.getUserInfo((userInfo) => {
       //更新数据
       that.setData({
         userInfo:userInfo
+      })
+      const {gender, nickName} = userInfo;
+      this.setData({
+        gender: gender,
+        name: nickName,
       })
     })
   }
