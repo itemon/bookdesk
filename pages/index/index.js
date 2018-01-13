@@ -77,6 +77,7 @@ Page({
     }
 
     if (!checkReq(wx, bookingRequirements)) {
+      this.setData({ paying: false });
       return;
     }
 
@@ -97,6 +98,7 @@ Page({
       wx.hideLoading();
       wx.showToast({
         title: err.errMsg,
+        image: '../../resource/close.png'
       });
     });
   },
