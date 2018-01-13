@@ -1,0 +1,8 @@
+/* pages/order.wxss */
+.txt-ctr {
+  text-align: center;
+}
+.txt-h3 {
+  display: block;
+  margin:20rpx 0;
+}

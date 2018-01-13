@@ -25,7 +25,7 @@
   </view>
   
   <view class="book-intr">
-    <text class="hint-text">就餐时间</text>
+    <text class="hint-text">就餐日期</text>
   </view>
   <view class="list-ctrl-item">
     <picker start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange" mode="date">
@@ -37,10 +37,20 @@
   </view>
 
   <view class="book-intr">
+    <text class="hint-text">就餐时间</text>
+  </view>
+  <view class="list-ctrl-item">
+    <radio-group bindchange="bindSelectTime">
+      <radio class="ctrl-radio" checked="checked" value="1">晚餐</radio>
+      <radio class="ctrl-radio" value="0">午餐</radio>
+    </radio-group>
+  </view>
+
+  <view class="book-intr">
     <text class="hint-text">联系电话</text>
   </view>
   <view class="list-ctrl-item">
-    <input value="{{phone}}" confirm-type="next" placeholder-style="color:#9a9a9a" data-name="phone" bindinput="bindText" class="ctrl-txt" type="number" placeholder="联系电话"/>
+    <input confirm-type="next" value="{{phone}}" confirm-type="next" placeholder-style="color:#9a9a9a" data-name="phone" bindinput="bindText" class="ctrl-txt" type="number" placeholder="请填写手机号"/>
   </view>
 
   <view class="book-intr">
@@ -63,7 +73,7 @@
   </view>
 
   <view class="price-wrapper">
-    支付定金：<text class="price">￥100元</text>
+    支付定金：<text class="price">￥{{hcBase[hcCheckedIndex] * 500}}元</text>
   </view>
   <button disabled="{{paying}}" bindtap="onStartPay" class="btn-primary">预定</button>
 </form>

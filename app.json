@@ -1,14 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/order/order"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "backgroundColor": "#eee",
     "navigationBarBackgroundColor": "#ff9000",
     "navigationBarTitleText": "就餐预定-MOKUTANYA",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "list": [

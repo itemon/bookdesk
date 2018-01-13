@@ -1,6 +1,6 @@
 <template name="logitem">
-    <view class="log-item">
-      <text>{{log}}</text>
-      <text class="hc">1人</text>
+    <view class="log-item" bindtap="bindItem" data-id="{{log.id}}">
+      <text>{{log.name}}, {{log.eat_date}}, {{log.eat_count}}人用餐</text>
+      <text class="hc">{{log.create_time}}</text>
     </view>
 </template>

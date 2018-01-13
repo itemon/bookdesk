@@ -1,0 +1,4 @@
+<!--pages/order.wxml-->
+<view class="txt-ctr">
+  <text class="txt-h3">预定成功</text>
+</view>

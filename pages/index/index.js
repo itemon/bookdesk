@@ -9,13 +9,13 @@ var {appConf} = require('../../conf/app_conf.js');
 var { loginBefore, setSessionKeyAndOpenId } = require('./login_utils.js');
 var { allRequirements, checkReq } = require('./booking_req.js');
 
-const HEAD_COUNT_BASE = [2, 4, 6, 8, 10];
+const HEAD_COUNT_BASE = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 Page({
   data: {
     userInfo: {},
     hc: HEAD_COUNT_BASE.map((item, idx) => {
-      return (idx == HEAD_COUNT_BASE.length - 1) ? item + '人以上' : item + '人以内';
+      return (idx == HEAD_COUNT_BASE.length - 1) ? item + '人以内' : item + '人';
     }),
     hcBase: HEAD_COUNT_BASE,
     hcCheckedIndex: 0,
@@ -26,6 +26,7 @@ Page({
     name: '',
     phone: '',
     taboos: '',
+    eat_mement: 1,
     paying: false,
   },
   //事件处理函数
@@ -67,13 +68,19 @@ Page({
       gender: Number(value),
     })
   },
+  bindSelectTime: function (evt) {
+    const { detail: { value } } = evt;
+    this.setData({
+      eat_mement: Number(value),
+    })
+  },
   booking (res) {
     let reqs = allRequirements(this);
     let bookingRequirements = {
       ...reqs,
       open_id: res.openid,
       // gender: 0,
-      eat_mement: 0,
+      // eat_mement: 0,
     }
 
     if (!checkReq(wx, bookingRequirements)) {
@@ -92,6 +99,12 @@ Page({
     })
     .then (res => {
       console.log(res);
+      wx.showToast({
+        title: '订餐成功，用餐愉快',
+      });
+      wx.navigateTo({
+        url: '/pages/order/order',
+      });
     })
     .catch(err => {
       this.setData({ paying: false });
@@ -122,8 +135,8 @@ Page({
     pay(wx)
     .then((res) => {
       return requestOpenId(wx, {
-        appid: appConf.appid,
-        secret: appConf.secret,
+        // appid: appConf.appid,
+        // secret: appConf.secret,
         js_code: res.code
       });
     })

@@ -7,6 +7,7 @@ const allRequirements = (page) => {
     taboos: page.data.taboos,
     name: page.data.name,
     phone: page.data.phone,
+    eat_mement: page.data.eat_mement,
   }
 }
 

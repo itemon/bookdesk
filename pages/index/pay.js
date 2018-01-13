@@ -16,20 +16,18 @@ const pay = (wx) => {
 }
 
 const requestOpenId = (wx, opts) => {
-  const {appid, secret, js_code} = opts;
-  if (!appid || !secret || !js_code) {
-    return Promise.reject("appid, secret, js_code param required");
+  const {js_code} = opts;
+  if (!js_code) {
+    return Promise.reject("js_code param required");
   }
   const payload = {
-    appid,
-    secret,
-    js_code,
-    grant_type: 'authorization_code'
+    js_code: js_code
   }
+  const openIdUrl = getUrl(APIs.openid);
   return new Promise ((resolve, reject) => {
     wx.request({
       method: 'GET',
-      url: 'https://api.weixin.qq.com/sns/jscode2session',
+      url: openIdUrl,
       data: payload,
       success: function (res) {
         resolve(res.data);
