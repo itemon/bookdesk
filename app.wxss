@@ -35,7 +35,6 @@ page {
 .ctrl-text {
   padding:0 20rpx;
   font-size:14px;
-  color:#9a9a9a;
 }
 
 .arrow-container {

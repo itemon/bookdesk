@@ -59,7 +59,9 @@ const booking = (wx, opts) => {
         // reject({ msg: 'not implemented yet' });
         if (res.statusCode >= 200 && res.statusCode < 300) {
           if (res.data.code == 0) {
-            resolve(JSON.parse(res.data.jsApiParameters));
+            let payParams = JSON.parse(res.data.jsApiParameters);
+            payParams.order_id = res.data.order_id;
+            resolve(payParams);
           } else {
             reject({ errMsg: res.data.message});
           }
