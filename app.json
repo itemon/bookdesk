@@ -9,14 +9,14 @@
     "backgroundTextStyle": "light",
     "backgroundColor": "#eee",
     "navigationBarBackgroundColor": "#ff9000",
-    "navigationBarTitleText": "就餐预定-MOKUTANYA",
+    "navigationBarTitleText": "MOKUTANYA就餐预订",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "就餐预定",
+        "text": "就餐预订",
         "iconPath": "resource/book.png",
         "selectedIconPath": "resource/book_selected.png"
       },
