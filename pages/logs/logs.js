@@ -2,6 +2,7 @@
 var util = require('../../utils/util.js');
 const {pay, requestOpenId} = require('./../index/pay.js');
 const {getOrders} = require('./order_utils.js');
+const { appConf } = require('./../../conf/app_conf.js');
 Page({
   data: {
     logs: []
@@ -16,18 +17,17 @@ Page({
       url: '/pages/order/order?id='+id,
     });
   },
+  onPullDownRefresh () {
+    wx.showNavigationBarLoading();
+    this.onLoad();
+  },
   onShareAppMessage: function() {
     return {
-      title: "就餐预定",
-      path: "pages/index/index?utm_source=log"
+      title: appConf.shareTitle,
+      path: appConf.sharePage + 'orders'
     }
   },
   onLoad: function () {
-    /*this.setData({
-      logs: (wx.getStorageSync('logs') || []).map(function (log) {
-        return util.formatTime(new Date(log))
-      })
-    })*/
     wx.showLoading({
       title: '请稍候...',
     });
@@ -44,6 +44,8 @@ Page({
       .then(res => {
         console.log(res);
         wx.hideLoading();
+        wx.stopPullDownRefresh();
+        wx.hideNavigationBarLoading();
         res = res.map (i => {
           i.create_time = new Date(i.create_time * 1000).toLocaleDateString();
           return i;
@@ -56,9 +58,13 @@ Page({
         this.setData({
           logs: res
         });
+        // wx.stopPullDownRefresh();
       })
       .catch((err) => {
         wx.hideLoading();
+        wx.stopPullDownRefresh();
+        wx.hideNavigationBarLoading();
+        // wx.stopPullDownRefresh();
         wx.showToast({
           title: '获取预定历史失败',
         });

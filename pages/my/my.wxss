@@ -1,4 +1,21 @@
 /* pages/my/my.wxss */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
 .my-action-item {
   display: flex;
   flex-direction: row;
@@ -9,5 +26,6 @@
   border-bottom:1px solid #eee;
 }
 .my-actions {
+  margin:20rpx 0 0;
   background:#fff;
 }

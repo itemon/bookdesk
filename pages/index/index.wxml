@@ -1,9 +1,10 @@
 <!--index.wxml-->
-<view class="container welcome">
+<view class="cover-container">
+  <image class="cover-img" mode="aspectFill" src="../../resource/cover.jpg"></image>
   <!--<view bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>-->
+  </view>
   <text>首先欢迎您光顾Mokutanya餐厅</text>
 <text>由于Mokutanya所用食材均为新鲜采购</text>
 <text>请您确定好时间与用餐人数后提前三天预约</text>
@@ -17,15 +18,15 @@
 <text>24H打电话或发短信确认</text>
 <text>用餐时我们会以预定手机发送的确定短信为准</text>
 <text>定金支付后不可以任何理由更改人数、改期或退款</text>
-<text>请您预定前三思，如果取消预定，请谅解定金恕不退还</text>
+<text>请您预定前三思，如果取消预定，请谅解定金恕不退还</text>-->
 </view>
 
 <form class="list-ctrl">
   <view class="book-intr">
-    <text class="hint-text">姓名</text>
+    <text class="hint-text">顾客尊称</text>
   </view>
   <view class="list-ctrl-item list-ctrl-col">
-    <input confirm-type="next" value="{{name}}" placeholder-style="color:#9a9a9a" data-name="name" bindinput="bindText" class="ctrl-txt" type="text" placeholder="姓名"/>
+    <input confirm-type="next" value="{{name}}" placeholder-style="color:#9a9a9a" data-name="name" bindinput="bindText" class="ctrl-txt" type="text" placeholder="顾客尊称"/>
     <radio-group bindchange="bindSelectGender">
       <radio class="ctrl-radio" checked="checked" value="1">先生</radio>
       <radio class="ctrl-radio" value="0">女士</radio>
@@ -89,4 +90,6 @@
     支付定金：<text class="price">￥{{hcBase[hcCheckedIndex] * 500}}元</text>
   </view>
   <button disabled="{{paying}}" bindtap="onStartPay" class="btn-primary">预定</button>
+
+  <text bindtap="bindPolicyClick" class="policy">订餐须知</text>
 </form>

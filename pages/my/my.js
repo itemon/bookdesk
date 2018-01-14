@@ -1,11 +1,13 @@
 // pages/my/my.js
+var app = getApp();
+var { appConf } = require('./../../conf/app_conf.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    userInfo: {},
   },
 
   bindCall () {
@@ -26,7 +28,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    app.getUserInfo((userInfo) => {
+      //更新数据
+      this.setData({
+        userInfo: userInfo
+      });
+    });
   },
 
   /**
@@ -75,6 +82,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: appConf.shareTitle,
+      path: appConf.sharePage + "my"
+    }
   }
 })

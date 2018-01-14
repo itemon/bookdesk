@@ -1,20 +1,4 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
 
 .book-intr {
   padding: 10rpx 0;
@@ -22,6 +6,7 @@
 }
 
 .clickable-arrow {
+  margin-right: 10rpx;
   width:30rpx;
   height:30rpx;
   border:1px solid #aaa;
@@ -64,4 +49,17 @@
 .tag:active {
   border-color:red;
   color:red;
+}
+
+.cover-img {
+  width:100%;
+  height:200px;
+}
+
+.policy {
+  display: block;
+  padding:0 30rpx 40rpx;
+  text-align: right;
+  font-size:14px;
+  text-decoration: underline;
 }

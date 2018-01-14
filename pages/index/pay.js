@@ -58,12 +58,13 @@ const booking = (wx, opts) => {
         // console.log(res);
         // reject({ msg: 'not implemented yet' });
         if (res.statusCode >= 200 && res.statusCode < 300) {
+          // res.data.code = 3;
           if (res.data.code == 0) {
             let payParams = JSON.parse(res.data.jsApiParameters);
             payParams.order_id = res.data.order_id;
             resolve(payParams);
           } else {
-            reject({ errMsg: res.data.message});
+            reject({ errMsg: res.data.message, code: res.data.code });
           }
         } else {
           reject({errMsg:'can not connecte to server'});

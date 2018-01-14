@@ -4,8 +4,8 @@ var app = getApp();
 var envInfo = require('../../utils/debug').envInfo;
 var {toDateString, toDateRange} = require('./date_utils');
 var [begin, end] = toDateRange();
-var {pay, requestOpenId, booking, checkout} = require('./pay.js');
-var {appConf} = require('../../conf/app_conf.js');
+var { pay, requestOpenId, booking, checkout } = require('./pay.js');
+var { appConf } = require('../../conf/app_conf.js');
 var { loginBefore, setSessionKeyAndOpenId } = require('./login_utils.js');
 var { allRequirements, checkReq } = require('./booking_req.js');
 
@@ -84,6 +84,26 @@ Page({
       taboos: this.data.taboos + (this.data.taboos.length > 0 ? ", " : "") + text
     })
   },
+  bindPolicyClick () {
+    wx.showModal({
+      title: '订餐须知',
+      content: `首先欢迎您光顾Mokutanya餐厅,
+      由于Mokutanya所用食材均为新鲜采购,
+      请您确定好时间与用餐人数后提前三天预约,
+      我们会收取您 500元/位 的定金,
+      定金到账后，我们会为您保留包间并准备食材,
+      支付定金时请填写清楚您的预约信息,
+      若有失误，定金不到账，则预定作废,
+      请务必在预定时及时支付定金,
+      若超出指定时间，则预定作废,
+      为确保您预定成功我们会在您支付定金后,
+      24小时打电话或发短信确认,
+      用餐时我们会以预定手机发送的确定短信为准,
+      定金支付后不可以任何理由更改人数、改期或退款,
+      请您预定前三思，如果取消预定，请谅解定金恕不退还`,
+      showCancel: false
+    });
+  },
   booking (res) {
     let reqs = allRequirements(this);
     let bookingRequirements = {
@@ -126,6 +146,14 @@ Page({
     .catch(err => {
       this.setData({ paying: false });
       wx.hideLoading();
+      if (err.code === 3) {
+        wx.showModal({
+          title: '订满了',
+          showCancel: false,
+          content: '您所选的时间段已经满座了，非常的抱歉，您可以选择其他时间段预定',
+        });
+        return;
+      }
       wx.showToast({
         title: err.errMsg,
         image: '../../resource/close.png'
@@ -168,6 +196,10 @@ Page({
   },
   onShareAppMessage: function (options) {
     console.log(options);
+    return {
+      title: appConf.shareTitle,
+      path: appConf.sharePage + "index"
+    }
   },
   onLoad: function () {
     envInfo(wx);

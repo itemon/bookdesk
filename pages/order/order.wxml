@@ -1,6 +1,6 @@
 <!--pages/order.wxml-->
 <view class="container txt-ctr">
-  <image class="action-icon" src="../../resource/checked.png"/>
+  <icon type="success" size="40"></icon>
   <text class="txt-h3">预约成功</text>
   <text>￥{{order.pay_price_paid}}元</text>
 </view>
