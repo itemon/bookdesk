@@ -1,4 +1,6 @@
 
+const {checkPhone} = require('../../utils/validator.js');
+
 const allRequirements = (page) => {
   return {
     eat_date: page.data.checkedDate,
@@ -18,9 +20,9 @@ const checkReq = (wx, all) => {
       image: '../../resource/close.png'
     });
     return false;
-  } else if (!all.phone || all.phone.length == 0) {
+  } else if (!all.phone || all.phone.length == 0 || !checkPhone(all.phone)) {
     wx.showToast({
-      title: '电话需要填写',
+      title: '手机号格式不对',
       image: '../../resource/close.png'
     });
     return false;

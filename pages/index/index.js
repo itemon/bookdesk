@@ -14,6 +14,7 @@ const HEAD_COUNT_BASE = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 Page({
   data: {
     userInfo: {},
+    tags: ['不吃辣', '少放辣', '不吃蒜'],
     hc: HEAD_COUNT_BASE.map((item, idx) => {
       return (idx == HEAD_COUNT_BASE.length - 1) ? item + '人以内' : item + '人';
     }),
@@ -28,6 +29,7 @@ Page({
     taboos: '',
     eat_mement: 1,
     paying: false,
+    currentOrderId: ''
   },
   //事件处理函数
   bindViewTap: function() {
@@ -74,6 +76,14 @@ Page({
       eat_mement: Number(value),
     })
   },
+  bindAddTag (evt) {
+    console.log(evt);
+    const { currentTarget: { dataset } } = evt;
+    const { text } = dataset;
+    this.setData({
+      taboos: this.data.taboos + (this.data.taboos.length > 0 ? ", " : "") + text
+    })
+  },
   booking (res) {
     let reqs = allRequirements(this);
     let bookingRequirements = {
@@ -95,6 +105,13 @@ Page({
       let allSignArgs = {
         ...res,
       }
+
+      const { order_id } = allSignArgs;
+      console.log('the order id just created is ', order_id);
+      this.setData({
+        currentOrderId: order_id
+      });
+
       return checkout(wx, allSignArgs);
     })
     .then (res => {
@@ -103,7 +120,7 @@ Page({
         title: '订餐成功，用餐愉快',
       });
       wx.navigateTo({
-        url: '/pages/order/order',
+        url: '/pages/order/order?id=' + this.data.currentOrderId,
       });
     })
     .catch(err => {

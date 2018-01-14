@@ -1,11 +1,15 @@
 // pages/order.js
+const { pay, requestOpenId } = require('./../index/pay.js');
+const { getOrder } = require('./../logs/order_utils.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    order: {},
+    orderStatus: ['', '未支付', '支付完成'],
   },
 
   /**
@@ -17,6 +21,39 @@ Page({
     if (id) {
       console.log('id is ', id);
     }
+
+    wx.showLoading({
+      title: '请稍候...',
+    });
+    pay(wx)
+      .then((res) => {
+        return requestOpenId(wx, {
+          js_code: res.code
+        });
+      })
+      .then((res) => {
+        console.log(res);
+        return getOrder(wx, { open_id: res.openid, order_id: id });
+      })
+      .then(res => {
+        console.log(res);
+        wx.hideLoading();
+
+        let create_time = res.create_time * 1000;
+        let create_date = new Date(create_time);
+        res.create_time = create_date.toLocaleDateString() + ' ' + create_date.toLocaleTimeString();
+
+        this.setData({
+          order: res
+        });
+      })
+      .catch((err) => {
+        wx.hideLoading();
+        wx.showToast({
+          title: '获取订单失败',
+          image: '../../resource/close.png'
+        });
+      });        
   },
 
   /**

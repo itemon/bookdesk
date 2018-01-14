@@ -1,26 +1,34 @@
 <!--index.wxml-->
-<view class="container">
-  <view bindtap="bindViewTap" class="userinfo">
+<view class="container welcome">
+  <!--<view bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
+  </view>-->
+  <text>首先欢迎您光顾Mokutanya餐厅</text>
+<text>由于Mokutanya所用食材均为新鲜采购</text>
+<text>请您确定好时间与用餐人数后提前三天预约</text>
+<text>我们会收取您 500元/位 的定金</text>
+<text>定金到账后，我们会为您保留包间并准备食材</text>
+<text>支付定金时请填写清楚您的预约信息</text>
+<text>若有失误，定金不到账，则预定作废</text>
+<text>请务必在预定时及时支付定金</text>
+<text>若超出指定时间，则预定作废</text>
+<text>为确保您预定成功我们会在您支付定金后</text>
+<text>24H打电话或发短信确认</text>
+<text>用餐时我们会以预定手机发送的确定短信为准</text>
+<text>定金支付后不可以任何理由更改人数、改期或退款</text>
+<text>请您预定前三思，如果取消预定，请谅解定金恕不退还</text>
 </view>
 
 <form class="list-ctrl">
   <view class="book-intr">
     <text class="hint-text">姓名</text>
   </view>
-  <view class="list-ctrl-item">
-    <input confirm-type="next" value="{{name}}" placeholder-style="color:#9a9a9a" data-name="name" bindinput="bindText" class="ctrl-txt" type="text" placeholder="姓名" auto-focus/>
-  </view>
-
-  <view class="book-intr">
-    <text class="hint-text">性别</text>
-  </view>
-  <view class="list-ctrl-item">
+  <view class="list-ctrl-item list-ctrl-col">
+    <input confirm-type="next" value="{{name}}" placeholder-style="color:#9a9a9a" data-name="name" bindinput="bindText" class="ctrl-txt" type="text" placeholder="姓名"/>
     <radio-group bindchange="bindSelectGender">
-      <radio class="ctrl-radio" checked="checked" value="1">男</radio>
-      <radio class="ctrl-radio" value="0">女</radio>
+      <radio class="ctrl-radio" checked="checked" value="1">先生</radio>
+      <radio class="ctrl-radio" value="0">女士</radio>
     </radio-group>
   </view>
   
@@ -70,6 +78,11 @@
   </view>
   <view class="list-ctrl-item">
     <textarea value="{{taboos}}" data-name="taboos" bindinput="bindText" class="ctrl-txt" auto-height placeholder="有什么忌口" />
+  </view>
+  <view class="tags">
+    <block wx:for="{{tags}}" wx:for-item="tag" wx:key="*this">
+      <text bindtap="bindAddTag" class="tag" data-text="{{tag}}">{{tag}}</text>
+    </block>
   </view>
 
   <view class="price-wrapper">

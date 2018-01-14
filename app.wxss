@@ -1,6 +1,7 @@
 /**app.wxss**/
 page {
   background: #eee;
+  min-height: 100%;
 }
 .container {
   height: 100%;
@@ -12,6 +13,10 @@ page {
   box-sizing: border-box;
   background:#fff;
 } 
+
+.container + .container {
+  margin-top:30rpx;
+}
 
 .hint-text {
   font-size: 12px;
@@ -53,7 +58,7 @@ page {
 
 .ctrl-radio {
   padding: 0 0 0 20rpx;
-  font-size:14px;
+  font-size:12px;
 }
 
 .ctrl-txt {
@@ -63,4 +68,37 @@ page {
 
 .input-placeholder {
   color:#9a9a9a;
+}
+
+.list-ctrl-col {
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.list-ctrl-col radio-group {
+  padding:0 20rpx 0 0;
+}
+
+.action-icon {
+  display: inline-block;
+  width: 80rpx;
+  height: 80rpx;
+}
+.list-empty {
+  width:80rpx;
+  height:80rpx;
+}
+
+.empty-container {
+  display: flex;
+  height:100vh;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  font-size:14px;
+  box-sizing:border-box;
+  color:#9a9a9a;
+}
+.empty-container text {
+  margin: 20rpx 0 0;
 }

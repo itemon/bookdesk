@@ -1,6 +1,11 @@
 <template name="logitem">
+    <view class="order-no">
+      <text>{{log.eat_date}}</text>
+      <text class="log-count">{{log.eat_mement ? '晚餐' : '午餐'}}/{{log.eat_count}}人</text>
+    </view>
     <view class="log-item" bindtap="bindItem" data-id="{{log.id}}">
-      <text>{{log.name}}, {{log.eat_date}}, {{log.eat_count}}人用餐</text>
+      <text>预订人：{{log.name}}</text>
+      <text>忌口：{{log.taboos || '无'}}</text>
       <text class="hc">{{log.create_time}}</text>
     </view>
 </template>

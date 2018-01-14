@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,6 +25,12 @@
         "text": "预定历史",
         "iconPath": "resource/his.png",
         "selectedIconPath": "resource/his_selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "resource/profile.png",
+        "selectedIconPath": "resource/profile_selected.png"
       }
     ],
     "selectedColor": "#ff9000"

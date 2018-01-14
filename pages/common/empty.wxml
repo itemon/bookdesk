@@ -1,0 +1,6 @@
+<template name="empty">
+  <view class="empty-container" wx:if="{{logs.length == 0}}">
+    <image class="list-empty" src="../../resource/empty-tray.png"/>
+    <text>暂无数据</text>
+  </view>
+</template>

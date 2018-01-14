@@ -1,21 +1,38 @@
 .log-list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   padding: 0;
+  background:#fff;
+}
+.log-list + .log-list {
+  margin:20rpx 0;
 }
 .log-item {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   padding:20rpx;
   width:100%;
   box-sizing:border-box;
+  font-size:14px;
 }
 .log-item:not(:last-child) {
   border-bottom: 1px solid #eee;
 }
+.log-count {
+  font-size:12px;
+}
 .hc {
+  display: block;
+  text-align: right;
   font-size:12px;
   color:#666;
+}
+.order-no {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:10rpx 20rpx;
+  font-size:14px;
+  color:#999;
+  border-bottom:1px solid #eee;
 }

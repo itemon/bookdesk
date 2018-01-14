@@ -6,3 +6,29 @@
   display: block;
   margin:20rpx 0;
 }
+.lst-prop {
+  display: flex;
+  width: 100%;
+  padding:10rpx 0;
+  flex-direction:row;
+  justify-content:space-between;
+  font-size:14px;
+  color:#999;
+}
+
+.lst-prop-col-left {
+  margin:0 40rpx 0 20rpx;
+}
+.lst-prop-col-right {
+  margin-right:20rpx;
+}
+.create-time {
+  padding:20rpx;
+  text-align:right;
+  font-size:12px;
+  color:#999;
+}
+
+.order-status-1 {
+  color:red;
+}

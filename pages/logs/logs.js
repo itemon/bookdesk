@@ -48,6 +48,11 @@ Page({
           i.create_time = new Date(i.create_time * 1000).toLocaleDateString();
           return i;
         });
+
+        // res = [];
+        // res.length = 4;
+        // res = res.fill(res[0], 1, 5);
+
         this.setData({
           logs: res
         });

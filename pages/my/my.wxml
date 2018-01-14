@@ -1,0 +1,10 @@
+<!--pages/my/my.wxml-->
+<view class="my-actions">
+  <view class="my-action-item" bindtap="bindCall">
+    <text>联系客服</text>
+    <text>400-166-7999</text>
+  </view>
+  <view class="my-action-item" bindtap="bindAbout">
+    <text>关于MOKUTANYA</text>
+  </view>
+</view>
