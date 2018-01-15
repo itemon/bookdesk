@@ -22,6 +22,10 @@ page {
   font-size: 12px;
   color:#9a9a9a;
 }
+.label-text {
+  font-size:12px;
+  padding:0 0 0 20rpx;
+}
 
 .list-ctrl-item {
   background: #fff;
@@ -66,6 +70,15 @@ page {
   padding:6rpx 20rpx;
   font-size:14px;
   vertical-align: middle;
+}
+
+.ctrl-txt-m {
+  font-size:14px;
+  padding:6rpx 20rpx;
+}
+
+.text-right {
+  text-align:right;
 }
 
 .input-placeholder {

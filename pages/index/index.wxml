@@ -22,22 +22,17 @@
 </view>
 
 <form class="list-ctrl">
-  <view class="book-intr">
-    <text class="hint-text">顾客尊称</text>
-  </view>
   <view class="list-ctrl-item list-ctrl-col">
     <input confirm-type="next" value="{{name}}" placeholder-style="color:#9a9a9a" data-name="name" bindinput="bindText" class="ctrl-txt" type="text" placeholder="顾客尊称"/>
     <radio-group bindchange="bindSelectGender">
-      <radio class="ctrl-radio" checked="checked" value="1">先生</radio>
-      <radio class="ctrl-radio" value="0">女士</radio>
+      <radio color="#ff9000" class="ctrl-radio" checked="checked" value="1">先生</radio>
+      <radio color="#ff9000" class="ctrl-radio" value="0">女士</radio>
     </radio-group>
   </view>
   
-  <view class="book-intr">
-    <text class="hint-text">就餐日期</text>
-  </view>
-  <view class="list-ctrl-item">
-    <picker start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange" mode="date">
+  <view class="list-ctrl-item list-ctrl-col">
+    <text class="label-text">就餐日期</text>
+    <picker class="picker-date" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange" mode="date">
       <view class="arrow-container">
         <view class="ctrl-text">{{checkedDate}}</view>
         <view class="clickable-arrow"></view>
@@ -45,28 +40,22 @@
     </picker>
   </view>
 
-  <view class="book-intr">
-    <text class="hint-text">就餐时间</text>
-  </view>
-  <view class="list-ctrl-item">
+  <view class="list-ctrl-item list-ctrl-col">
+    <text class="label-text">就餐时间</text>
     <radio-group bindchange="bindSelectTime">
-      <radio class="ctrl-radio" checked="checked" value="1">晚餐</radio>
-      <radio class="ctrl-radio" value="0">午餐</radio>
+      <radio color="#ff9000" class="ctrl-radio" checked="checked" value="1">晚餐</radio>
+      <radio color="#ff9000" class="ctrl-radio" value="0">午餐</radio>
     </radio-group>
   </view>
 
-  <view class="book-intr">
-    <text class="hint-text">联系电话</text>
-  </view>
-  <view class="list-ctrl-item">
-    <input confirm-type="next" value="{{phone}}" confirm-type="next" placeholder-style="color:#9a9a9a" data-name="phone" bindinput="bindText" class="ctrl-txt" type="number" placeholder="请填写手机号"/>
+  <view class="list-ctrl-item list-ctrl-col">
+    <text class="label-text">联系电话</text>
+    <input confirm-type="next" value="{{phone}}" confirm-type="next" placeholder-style="color:#9a9a9a" data-name="phone" bindinput="bindText" class="ctrl-txt text-right" type="number" placeholder="请填写手机号"/>
   </view>
 
-  <view class="book-intr">
-    <text class="hint-text">就餐人数</text>
-  </view>
-  <view class="list-ctrl-item">
-    <picker bindchange="bindPCChange" mode="selector" range="{{hc}}" value="{{hcCheckedIndex}}">
+  <view class="list-ctrl-item list-ctrl-col">
+    <text class="label-text">就餐人数</text>
+    <picker class="picker-date" bindchange="bindPCChange" mode="selector" range="{{hc}}" value="{{hcCheckedIndex}}">
       <view class="arrow-container">
         <view class="ctrl-text">{{hc[hcCheckedIndex]}}</view>
         <view class="clickable-arrow"></view>
@@ -74,11 +63,8 @@
     </picker>
   </view>
 
-  <view class="book-intr">
-    <text confirm-type="done" placeholder-style="color:#9a9a9a" class="hint-text">忌口</text>
-  </view>
   <view class="list-ctrl-item">
-    <textarea value="{{taboos}}" data-name="taboos" bindinput="bindText" class="ctrl-txt" auto-height placeholder="有什么忌口" />
+    <textarea confirm-type="done" value="{{taboos}}" data-name="taboos" bindinput="bindText" class="ctrl-txt-m" auto-height placeholder="有什么忌口" />
   </view>
   <view class="tags">
     <block wx:for="{{tags}}" wx:for-item="tag" wx:key="*this">
