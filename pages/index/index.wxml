@@ -31,7 +31,7 @@
   </view>
   
   <view class="list-ctrl-item list-ctrl-col">
-    <text class="label-text">就餐日期</text>
+    <text class="label-text label-pad">就餐日期</text>
     <picker class="picker-date" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange" mode="date">
       <view class="arrow-container">
         <view class="ctrl-text">{{checkedDate}}</view>
@@ -41,7 +41,7 @@
   </view>
 
   <view class="list-ctrl-item list-ctrl-col">
-    <text class="label-text">就餐时间</text>
+    <text class="label-text label-pad">就餐时间</text>
     <radio-group bindchange="bindSelectTime">
       <radio color="#ff9000" class="ctrl-radio" checked="checked" value="1">晚餐</radio>
       <radio color="#ff9000" class="ctrl-radio" value="0">午餐</radio>
@@ -49,12 +49,12 @@
   </view>
 
   <view class="list-ctrl-item list-ctrl-col">
-    <text class="label-text">联系电话</text>
+    <text class="label-text label-pad">联系电话</text>
     <input confirm-type="next" value="{{phone}}" confirm-type="next" placeholder-style="color:#9a9a9a" data-name="phone" bindinput="bindText" class="ctrl-txt text-right" type="number" placeholder="请填写手机号"/>
   </view>
 
   <view class="list-ctrl-item list-ctrl-col">
-    <text class="label-text">就餐人数</text>
+    <text class="label-text label-pad">就餐人数</text>
     <picker class="picker-date" bindchange="bindPCChange" mode="selector" range="{{hc}}" value="{{hcCheckedIndex}}">
       <view class="arrow-container">
         <view class="ctrl-text">{{hc[hcCheckedIndex]}}</view>

@@ -68,3 +68,7 @@
 .picker-date {
   padding:6rpx 0;
 }
+
+.label-pad {
+  padding-top:8rpx;
+}
