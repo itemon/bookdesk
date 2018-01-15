@@ -47,8 +47,8 @@
   font-size:12px;
 }
 .tag:active {
-  border-color:red;
-  color:red;
+  border-color:#f00;
+  color:#f00;
 }
 
 .cover-img {

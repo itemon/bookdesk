@@ -25,8 +25,8 @@
   <view class="list-ctrl-item list-ctrl-col">
     <input confirm-type="next" value="{{name}}" placeholder-style="color:#9a9a9a" data-name="name" bindinput="bindText" class="ctrl-txt" type="text" placeholder="顾客尊称"/>
     <radio-group bindchange="bindSelectGender">
-      <radio color="#ff9000" class="ctrl-radio" checked="checked" value="1">先生</radio>
-      <radio color="#ff9000" class="ctrl-radio" value="0">女士</radio>
+      <radio color="#ff0000" class="ctrl-radio" checked="checked" value="1">先生</radio>
+      <radio color="#ff0000" class="ctrl-radio" value="0">女士</radio>
     </radio-group>
   </view>
   
@@ -43,8 +43,8 @@
   <view class="list-ctrl-item list-ctrl-col">
     <text class="label-text label-pad">就餐时间</text>
     <radio-group bindchange="bindSelectTime">
-      <radio color="#ff9000" class="ctrl-radio" checked="checked" value="1">晚餐</radio>
-      <radio color="#ff9000" class="ctrl-radio" value="0">午餐</radio>
+      <radio color="#ff0000" class="ctrl-radio" checked="checked" value="1">晚餐</radio>
+      <radio color="#ff0000" class="ctrl-radio" value="0">午餐</radio>
     </radio-group>
   </view>
 
@@ -77,5 +77,5 @@
   </view>
   <button disabled="{{paying}}" bindtap="onStartPay" class="btn-primary">预定</button>
 
-  <text bindtap="bindPolicyClick" class="policy">订餐须知</text>
+  <text bindtap="bindPolicyClick" class="policy">预订须知</text>
 </form>

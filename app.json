@@ -8,7 +8,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "backgroundColor": "#eee",
-    "navigationBarBackgroundColor": "#ff9000",
+    "navigationBarBackgroundColor": "#ff0000",
     "navigationBarTitleText": "MOKUTANYA就餐预订",
     "navigationBarTextStyle": "white"
   },
@@ -33,7 +33,7 @@
         "selectedIconPath": "resource/profile_selected.png"
       }
     ],
-    "selectedColor": "#ff9000"
+    "selectedColor": "#ff0000"
   },
   "debug": true
 }
