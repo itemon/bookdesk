@@ -9,7 +9,7 @@ var { appConf } = require('../../conf/app_conf.js');
 var { loginBefore, setSessionKeyAndOpenId } = require('./login_utils.js');
 var { allRequirements, checkReq } = require('./booking_req.js');
 
-const HEAD_COUNT_BASE = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const HEAD_COUNT_BASE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 Page({
   data: {
