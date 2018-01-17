@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="cover-container">
-  <swiper autoplay="true" interval="5000" duration="1000" indicator-dots="true">
+  <swiper class="cover-img" autoplay="true" interval="5000" duration="1000" indicator-dots="true">
     <swiper-item><image lazy-load="true" class="cover-img" mode="aspectFill" src="http://p2ogav57p.bkt.clouddn.com/statics/img/bg1.jpg"></image></swiper-item>
     <swiper-item><image lazy-load="true" class="cover-img" mode="aspectFill" src="http://p2ogav57p.bkt.clouddn.com/statics/img/bg2.jpg"></image></swiper-item>
     <swiper-item><image lazy-load="true" class="cover-img" mode="aspectFill" src="http://p2ogav57p.bkt.clouddn.com/statics/img/bg3.jpg"></image></swiper-item>

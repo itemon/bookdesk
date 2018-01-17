@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/order/order",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/text/text",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,7 +36,7 @@
       }
     ],
     "selectedColor": "#000",
-    "color":"#999"
+    "color": "#999"
   },
   "debug": true
 }
