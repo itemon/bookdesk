@@ -1,6 +1,10 @@
 <!--index.wxml-->
 <view class="cover-container">
-  <image class="cover-img" mode="aspectFill" src="../../resource/cover.jpg"></image>
+  <swiper autoplay="true" interval="5000" duration="1000" indicator-dots="true">
+    <swiper-item><image lazy-load="true" class="cover-img" mode="aspectFill" src="http://p2ogav57p.bkt.clouddn.com/statics/img/bg1.jpg"></image></swiper-item>
+    <swiper-item><image lazy-load="true" class="cover-img" mode="aspectFill" src="http://p2ogav57p.bkt.clouddn.com/statics/img/bg2.jpg"></image></swiper-item>
+    <swiper-item><image lazy-load="true" class="cover-img" mode="aspectFill" src="http://p2ogav57p.bkt.clouddn.com/statics/img/bg3.jpg"></image></swiper-item>
+  </swiper>
   <!--<view bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
@@ -25,8 +29,8 @@
   <view class="list-ctrl-item list-ctrl-col">
     <input confirm-type="next" value="{{name}}" placeholder-style="color:#9a9a9a" data-name="name" bindinput="bindText" class="ctrl-txt" type="text" placeholder="顾客尊称"/>
     <radio-group bindchange="bindSelectGender">
-      <radio color="#ff0000" class="ctrl-radio" checked="checked" value="1">先生</radio>
-      <radio color="#ff0000" class="ctrl-radio" value="0">女士</radio>
+      <radio color="#000" class="ctrl-radio" checked="checked" value="1">先生</radio>
+      <radio color="#000" class="ctrl-radio" value="0">女士</radio>
     </radio-group>
   </view>
   
@@ -43,8 +47,8 @@
   <view class="list-ctrl-item list-ctrl-col">
     <text class="label-text label-pad">就餐时间</text>
     <radio-group bindchange="bindSelectTime">
-      <radio color="#ff0000" class="ctrl-radio" checked="checked" value="1">晚餐</radio>
-      <radio color="#ff0000" class="ctrl-radio" value="0">午餐</radio>
+      <radio color="#000" class="ctrl-radio" checked="checked" value="1">晚餐</radio>
+      <radio color="#000" class="ctrl-radio" value="0">午餐</radio>
     </radio-group>
   </view>
 

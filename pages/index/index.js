@@ -14,7 +14,7 @@ const HEAD_COUNT_BASE = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 Page({
   data: {
     userInfo: {},
-    tags: ['不吃辣', '少放辣', '不吃蒜'],
+    tags: [],
     hc: HEAD_COUNT_BASE.map((item, idx) => {
       return (idx == HEAD_COUNT_BASE.length - 1) ? item + '人以内' : item + '人';
     }),
@@ -86,7 +86,7 @@ Page({
   },
   bindPolicyClick () {
     wx.showModal({
-      title: '订餐须知',
+      title: '预定须知',
       content: `首先欢迎您光顾Mokutanya餐厅,
       由于Mokutanya所用食材均为新鲜采购,
       请您确定好时间与用餐人数后提前三天预约,

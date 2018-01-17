@@ -19,7 +19,18 @@ Page({
   bindAbout () {
     wx.showModal({
       title: '关于MOKUTANYA',
-      content: '我们是MOKUTANYMOKUTANYMOKUTANYMOKUTANYMOKUTANYMOKUTANYMOKUTANYMOKUTANY',
+      content: `
+      凭借优质的食材、独特的烹饪方式和优秀的管理团队
+MOKUTANYA仅用一年的时间就获得了米其林推荐餐厅的称号
+并且在连续4年的时间里
+保持着始终如一的菜品质量和服务质量
+2015年
+MOKUTANYA获得了
+“旧金山最值得去的26家餐厅之一”的荣誉称号
+2017年，Mokutanya入驻济南
+致力于向济南人民提供经典法式料理
+传播正统西餐文化
+      `,
       showCancel: false,
     });
   },
